@@ -7,6 +7,7 @@ import SmileSol from "../../components/smileSol/SmileSol";
 import Clinics from "../../components/locationOfClinics/Clinics";
 import ContactForm from "../../components/form/ContactForm";
 import ImplantsCounter from "../../implantCount/ImplantsCounter";
+import Mobile_bottum from "../../components/Mobile_bottum";
 
 export const Prathamesh = (): JSX.Element => {
   return (
@@ -42,6 +43,7 @@ export const Prathamesh = (): JSX.Element => {
 
       {/* Form */}
       <ContactForm />
+      <Mobile_bottum/>
 
       {/* Analytics */}
       <Analytics />

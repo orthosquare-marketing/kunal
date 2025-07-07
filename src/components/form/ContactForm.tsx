@@ -12,7 +12,7 @@ const ContactForm = () => {
                 window.open('https://wa.me/919167195818', '_blank')
               }}
                className="underline text-[#0578b1]">
-            schedule a free video consultation
+            schedule a video consultation
           </a>{" "}
           with Dr. Shet or begin planning your dental trip to India. You can choose the clinic location that suits you best
         </p>
