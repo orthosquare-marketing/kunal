@@ -19,7 +19,7 @@ const Hero = () => {
             </div>
             <Button 
               onClick={() => {
-                window.open('https://wa.me/919981057175', '_blank')
+                window.open('https://wa.me/919167195818', '_blank')
               }}
             className="w-full h-12 mt-8 lg:mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-2 px-3 sm:px-4 overflow-hidden hover:bg-[#046a9d] transition duration-200">
               <div className="min-w-0 flex items-center gap-2">
