@@ -108,10 +108,13 @@ const ContactForm: React.FC = () => {
       </div>
 
       <form
-        className="max-w-4xl mx-auto border-2 border-[#0578b1] rounded-lg p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-[#0578b1] font-medium"
+        
         onSubmit={handleSubmit}
       >
-        <div className="flex flex-col">
+      <div 
+      className="max-w-4xl mx-auto border-2 border-[#0578b1] rounded-lg p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-[#0578b1] font-medium"
+      >
+          <div className="flex flex-col">
           <label htmlFor="firstName" className="mb-1">First Name</label>
           <input
             type="text"
@@ -200,6 +203,8 @@ const ContactForm: React.FC = () => {
             {submissionMessage}
           </p>
         )}
+      </div>
+        
 
         <div className="w-full text-center mb-10">
             <Button
