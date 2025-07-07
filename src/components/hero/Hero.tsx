@@ -23,8 +23,8 @@ const Hero = () => {
               }}
             className="w-full h-12 mt-8 lg:mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-2 px-3 sm:px-4 overflow-hidden hover:bg-[#046a9d] transition duration-200">
               <div className="min-w-0 flex items-center gap-2">
-                <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center">
-                Quick Dental Consult at ₹500
+                <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-lg lg:text-[20px] tracking-[-0.5px] leading-normal text-center">
+                Quick Dental Consult at ₹500
                 </span>
                 <img
                   className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] flex-shrink-0"
