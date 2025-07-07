@@ -3,21 +3,18 @@ import Hero from "../../components/hero/Hero";
 import About from "../../components/about/About";
 import Smile from "../../components/smileComp3/smile";
 import Awards from "../../components/awards/Awards";
-// import BeforAfter from "../../components/beforeAfter/BeforAfter";
 import SmileSol from "../../components/smileSol/SmileSol";
 import Clinics from "../../components/locationOfClinics/Clinics";
-// import { YTvideo } from "../../components/Vidio/YTvideo";
 import ContactForm from "../../components/form/ContactForm";
 import ImplantsCounter from "../../implantCount/ImplantsCounter";
-// import Cslide from "../../implantCount/Cslide"
 
 export const Prathamesh = (): JSX.Element => {
   return (
     <div className="bg-white">
       {/* Hero Section */}
       <Hero />
+{/* hi */}
 
-      {/* <Cslide/> */}
 
       {/* Implants Counter Section */}
       <ImplantsCounter />
@@ -33,8 +30,7 @@ export const Prathamesh = (): JSX.Element => {
 
 
 
-      {/* Gallery Section */}
-      {/* <BeforAfter /> */}
+
 
       {/* Smile Solution */}
       <SmileSol />
@@ -42,8 +38,7 @@ export const Prathamesh = (): JSX.Element => {
       {/* Clinics Location */}
       <Clinics />
 
-      {/* YT Video */}
-      {/* <YTvideo /> */}
+
 
       {/* Form */}
       <ContactForm />
