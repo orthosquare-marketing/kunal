@@ -15,7 +15,7 @@ const MobileBottom = () => {
         </a>
         <a
           href="tel:919167195818"
-          className="text-white text-center bg-[#141414]/65 p-3 font-bold text-lg"
+          className="text-white text-center bg-[#141414] p-3 font-bold text-lg"
         >
           Call Now
         </a>
