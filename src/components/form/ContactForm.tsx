@@ -8,7 +8,10 @@ const ContactForm = () => {
         </h2>
         <p className="text-gray-700 text-base md:text-lg mb-12">
           Please fill out the form below to either{" "}
-          <a href="#" className="underline text-[#0578b1]">
+          <a  onClick={() => {
+                window.open('https://wa.me/919167195818', '_blank')
+              }}
+               className="underline text-[#0578b1]">
             schedule a free video consultation
           </a>{" "}
           with Dr. Shet or begin planning your dental trip to India. You can choose the clinic location that suits you best
@@ -51,11 +54,11 @@ const ContactForm = () => {
 
           <Button
               onClick={() => {
-                window.open('https://wa.me/919981057175', '_blank')
+                window.open('https://wa.me/919167195818', '_blank')
               }}
               className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
               <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-              Get Video Consultation with Dr. Shet
+              Get Instant Consultation at ₹500
               </span>
               <img
                 className="w-[20px] h-[20px] ml-2"
