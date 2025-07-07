@@ -92,6 +92,20 @@ const Smile = () => {
                 />
               ))}
             </div>
+            <Button className="w-[372px] h-12 mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 hover:bg-[#046a9d] transition duration-200">
+                <span 
+                onClick={() => {
+                  window.open('https://wa.me/919981057175', '_blank')
+                }}
+                className="font-['Poppins'] font-medium text-white text-[23px] tracking-[-0.92px] mr-1">
+                Request Virtual Consultation at ₹500
+                </span>
+                <img
+                  className="w-[20px] h-[20px]"
+                  alt="Frame"
+                  src="/math.png"
+                />
+              </Button>
           </div>
 
           {/* Desktop Layout */}
@@ -127,7 +141,7 @@ const Smile = () => {
                   window.open('https://wa.me/919981057175', '_blank')
                 }}
                 className="font-['Poppins'] font-medium text-white text-[23px] tracking-[-0.92px] mr-1">
-                Request a Virtual Consultation
+                Request Virtual Consultation at ₹500
                 </span>
                 <img
                   className="w-[20px] h-[20px]"

@@ -63,7 +63,7 @@ const About = () => {
               }}
               className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
               <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-              Get In Touch With Dr. Shet via Video Call
+              Consult with Dr. Shet via Video Call at ₹500
               </span>
               <img
                 className="w-[20px] h-[20px] ml-2"
