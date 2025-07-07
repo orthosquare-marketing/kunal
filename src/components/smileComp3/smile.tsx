@@ -92,20 +92,22 @@ const Smile = () => {
                 />
               ))}
             </div>
-            <Button className="w-[372px] h-12 mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 hover:bg-[#046a9d] transition duration-200">
-                <span 
-                onClick={() => {
-                  window.open('https://wa.me/919981057175', '_blank')
-                }}
-                className="font-['Poppins'] font-medium text-white text-[23px] tracking-[-0.92px] mr-1">
-                Request Virtual Consultation at ₹500
-                </span>
-                <img
-                  className="w-[20px] h-[20px]"
-                  alt="Frame"
-                  src="/math.png"
-                />
-              </Button>
+           <div className="w-full text-center mb-10">
+            <Button
+              onClick={() => {
+                window.open('https://wa.me/919981057175', '_blank')
+              }}
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
+              Request Virtual Consultation at ₹500
+              </span>
+              <img
+                className="w-[20px] h-[20px] ml-2"
+                alt="Frame"
+                src="/math.png"
+              />
+            </Button>
+          </div>
           </div>
 
           {/* Desktop Layout */}
@@ -135,20 +137,22 @@ const Smile = () => {
                 ))}
               </div>
 
-              <Button className="w-[372px] h-12 mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 hover:bg-[#046a9d] transition duration-200">
-                <span 
-                onClick={() => {
-                  window.open('https://wa.me/919981057175', '_blank')
-                }}
-                className="font-['Poppins'] font-medium text-white text-[23px] tracking-[-0.92px] mr-1">
-                Request Virtual Consultation at ₹500
-                </span>
-                <img
-                  className="w-[20px] h-[20px]"
-                  alt="Frame"
-                  src="/math.png"
-                />
-              </Button>
+           <div className="w-full text-center mb-10">
+            <Button
+              onClick={() => {
+                window.open('https://wa.me/919981057175', '_blank')
+              }}
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
+              Request Virtual Consultation at ₹500
+              </span>
+              <img
+                className="w-[20px] h-[20px] ml-2"
+                alt="Frame"
+                src="/math.png"
+              />
+            </Button>
+          </div>
             </div>
           </div>
         </div>
