@@ -220,8 +220,35 @@ const ContactForm: React.FC = () => {
             </p>
           )}
       
-
+  <Button
+              onClick={() => {
+                window.open('https://wa.me/919167195818', '_blank')
+              }}
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
+              Expert Video Consultation with Dr. Shet at ₹5001
+              </span>
+              <img
+                className="w-[20px] h-[20px] ml-2"
+                alt="Frame"
+                src="/math.png"
+              />
+            </Button>
         <div className="w-full text-center mb-10">
+          <Button
+              onClick={() => {
+                window.open('https://wa.me/919167195818', '_blank')
+              }}
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
+              Expert Video Consultation with Dr. Shet at ₹5002
+              </span>
+              <img
+                className="w-[20px] h-[20px] ml-2"
+                alt="Frame"
+                src="/math.png"
+              />
+            </Button>
           <Button
             type="submit"
             className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200"
