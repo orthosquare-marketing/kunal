@@ -1,4 +1,7 @@
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
+import ModalButton from "../../components/ui/modal-button";
+
+
 const Hero = () => {
   return (
     <section className="relative min-h-[500px]  bg-cover bg-center px-4 md:px-8 lg:px-0" style={{background:"#EAF8FF"}}>
@@ -17,23 +20,10 @@ const Hero = () => {
               Award-Winning Implantologist | 80,000+ Smiles Delivered | Mentor
               to 400+ Dentists
             </div>
-            <Button 
-              onClick={() => {
-                window.open('https://wa.me/919167195818', '_blank')
-              }}
-            className="w-full h-12 mt-8 lg:mt-[100px] bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-2 px-3 sm:px-4 overflow-hidden hover:bg-[#046a9d] transition duration-200">
-              <div className="min-w-0 flex items-center gap-2">
-                <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-[17px] sm:text-[18px] lg:text-[20px] tracking-[-0.5px] leading-normal text-center">
-                  Quick Dental Consult at ₹500
-                </span>
-
-                <img
-                  className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px] flex-shrink-0"
-                  alt="Arrow Icon"
-                  src="/math.png"
-                />
-              </div>
-            </Button>
+            <ModalButton  
+              buttonText="Quick Dental Consult at ₹500"
+              className="w-full h-12 mt-8 lg:mt-[100px]"
+            />
           </div>
           {/* Right Column */}
           <div className="relative ">
