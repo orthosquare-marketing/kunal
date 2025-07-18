@@ -1,5 +1,5 @@
-import { Button } from "../ui/button";
-
+// import { Button } from "../ui/button";
+import ModalButton from "../../components/ui/modal-button";
 const CircularProgress = ({ percentageText, percentageBar, label }: any) => {
   const radius = 45;
   const stroke = 6;
@@ -93,7 +93,7 @@ const Smile = () => {
               ))}
             </div>
            <div className="w-full text-center mb-10">
-            <Button
+            {/* <Button
               onClick={() => {
                 window.open('https://wa.me/919167195818', '_blank')
               }}
@@ -106,7 +106,11 @@ const Smile = () => {
                 alt="Frame"
                 src="/math.png"
               />
-            </Button>
+            </Button> */}
+            <ModalButton  
+              buttonText="Request Virtual Consultation at ₹500"
+              className="w-full h-12 mt-8 lg:mt-[100px]"
+            />
           </div>
           </div>
 
@@ -138,7 +142,7 @@ const Smile = () => {
               </div>
 
            <div className="w-full text-center mb-10">
-            <Button
+            {/* <Button
               onClick={() => {
                 window.open('https://wa.me/919167195818', '_blank')
               }}
@@ -151,7 +155,11 @@ const Smile = () => {
                 alt="Frame"
                 src="/math.png"
               />
-            </Button>
+            </Button> */}
+            <ModalButton  
+              buttonText="Request Virtual Consultation at ₹500"
+              className="w-full h-12 mt-8 lg:mt-[100px]"
+            />
           </div>
             </div>
           </div>

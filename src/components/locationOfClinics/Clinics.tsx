@@ -1,6 +1,6 @@
 
-import { Button } from '../ui/button';
-
+// import { Button } from '../ui/button';
+import ModalButton from "../../components/ui/modal-button";
 
 const Clinics = () => {
 
@@ -44,7 +44,7 @@ const Clinics = () => {
   </div>
 </div>
 
-        <Button
+        {/* <Button
               onClick={() => {
                 window.open('https://wa.me/919167195818', '_blank')
               }}
@@ -57,7 +57,11 @@ const Clinics = () => {
                 alt="Frame"
                 src="/math.png"
               />
-            </Button>
+            </Button> */}
+            <ModalButton  
+              buttonText="Expert Video Consultation with Dr. Shet at ₹500"
+              className="w-full h-12 mt-8 lg:mt-[100px]"
+            />
       </section>
     </div>
   );

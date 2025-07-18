@@ -1,5 +1,6 @@
 import React from "react";
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
+import ModalButton from "../../components/ui/modal-button";
 
 const SmileSol: React.FC = () => {
 
@@ -63,7 +64,7 @@ const SmileSol: React.FC = () => {
 
                 </div>
                 {/* CTA Button */}
-                <Button
+                {/* <Button
                     onClick={() => {
                         window.open('https://wa.me/919167195818', '_blank')
                     }}
@@ -76,7 +77,11 @@ const SmileSol: React.FC = () => {
                         alt="Frame"
                         src="/math.png"
                     />
-                </Button>
+                </Button> */}
+                <ModalButton  
+              buttonText="Quick Connect via Video Call only at ₹500"
+              className="w-full h-12 mt-8 lg:mt-[100px]"
+            />
             </div>
         </section>
     );

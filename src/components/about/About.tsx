@@ -1,4 +1,5 @@
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
+import ModalButton from "../../components/ui/modal-button";
 
 const About = () => {
   return (
@@ -57,7 +58,7 @@ const About = () => {
           </div>
           {/* CTA Button */}
           <div className="w-full text-center mb-10">
-            <Button
+            {/* <Button
               onClick={() => {
                 window.open('https://wa.me/919167195818', '_blank')
               }}
@@ -70,7 +71,12 @@ const About = () => {
                 alt="Frame"
                 src="/math.png"
               />
-            </Button>
+            </Button> */}
+
+            <ModalButton  
+              buttonText="Consult with Dr. Shet via Video Call at ₹500"
+              className="w-full h-12 mt-8 lg:mt-[100px]"
+            />
           </div>
         </div>
       </section>
