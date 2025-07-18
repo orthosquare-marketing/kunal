@@ -75,7 +75,7 @@ const About = () => {
 
             <ModalButton  
               buttonText="Consult with Dr. Shet via Video Call at ₹500"
-              className="w-full h-12 mt-8 lg:mt-[100px]"
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200"
             />
           </div>
         </div>
