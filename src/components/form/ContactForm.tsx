@@ -19,7 +19,7 @@ const ContactForm: React.FC = () => {
     emailAddress: '',
     contactNumber: '',
     countryOfResidence: '',
-    privacyConsent: false,
+    privacyConsent: true,
   });
 
   // State for submission status and messages
@@ -194,7 +194,6 @@ const ContactForm: React.FC = () => {
               checked={formData.privacyConsent}
               onChange={handleChange}
               required
-              checked
             />
             <label htmlFor="privacyConsent" className="leading-snug">
               By checking this box, I confirm that I agree to Orthosquare M.D.C.
