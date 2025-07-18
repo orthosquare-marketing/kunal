@@ -108,11 +108,8 @@ const ContactForm: React.FC = () => {
         </p>
       </div>
 
-      <form
-        className="max-w-4xl mx-auto border-2 border-[#0578b1] rounded-lg p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-[#0578b1] font-medium"
-        onSubmit={handleSubmit}
-      >
-        
+      <form onSubmit={handleSubmit}>
+        <div className="max-w-4xl mx-auto border-2 border-[#0578b1] rounded-lg p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-[#0578b1] font-medium">
           <div className="flex flex-col">
             <label htmlFor="firstName" className="mb-1">
               First Name
@@ -197,6 +194,7 @@ const ContactForm: React.FC = () => {
               checked={formData.privacyConsent}
               onChange={handleChange}
               required
+              checked
             />
             <label htmlFor="privacyConsent" className="leading-snug">
               By checking this box, I confirm that I agree to Orthosquare M.D.C.
@@ -219,53 +217,28 @@ const ContactForm: React.FC = () => {
               {submissionMessage}
             </p>
           )}
-      
-  <Button
-              onClick={() => {
-                window.open('https://wa.me/919167195818', '_blank')
-              }}
-              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
-              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-              Expert Video Consultation with Dr. Shet at ₹5001
-              </span>
-              <img
-                className="w-[20px] h-[20px] ml-2"
-                alt="Frame"
-                src="/math.png"
-              />
-            </Button>
-        <div className="w-full text-center mb-10">
-          <Button
-              onClick={() => {
-                window.open('https://wa.me/919167195818', '_blank')
-              }}
-              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
-              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-              Expert Video Consultation with Dr. Shet at ₹5002
-              </span>
-              <img
-                className="w-[20px] h-[20px] ml-2"
-                alt="Frame"
-                src="/math.png"
-              />
-            </Button>
+
+          <div className="w-full text-center mb-10">
           <Button
             type="submit"
-            className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200"
+            className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-3 px-6 py-4 mx-auto hover:bg-[#046a9d] transition duration-200 min-w-fit"
             disabled={submissionStatus === "submitting"}
           >
-            <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
+            <span className="font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[18px] tracking-[-0.5px] leading-normal">
               {submissionStatus === "submitting"
                 ? "Submitting..."
                 : "Get Instant Consultation at ₹500"}
             </span>
             <img
-              className="w-[20px] h-[20px] ml-2"
+              className="w-[20px] h-[20px] flex-shrink-0"
               alt="Frame"
               src="/math.png"
             />
           </Button>
         </div>
+        </div>
+
+        
       </form>
     </section>
   );
