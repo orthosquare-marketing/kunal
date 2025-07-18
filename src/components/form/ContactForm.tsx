@@ -108,8 +108,11 @@ const ContactForm: React.FC = () => {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className="max-w-4xl mx-auto border-2 border-[#0578b1] rounded-lg p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-[#0578b1] font-medium">
+      <form
+        className="max-w-4xl mx-auto border-2 border-[#0578b1] rounded-lg p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 text-[#0578b1] font-medium"
+        onSubmit={handleSubmit}
+      >
+        
           <div className="flex flex-col">
             <label htmlFor="firstName" className="mb-1">
               First Name
@@ -216,7 +219,9 @@ const ContactForm: React.FC = () => {
               {submissionMessage}
             </p>
           )}
+      
 
+        <div className="w-full text-center mb-10">
           <Button
             type="submit"
             className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200"
@@ -234,7 +239,6 @@ const ContactForm: React.FC = () => {
             />
           </Button>
         </div>
-       
       </form>
     </section>
   );
