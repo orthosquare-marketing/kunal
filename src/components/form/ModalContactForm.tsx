@@ -25,7 +25,7 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
     emailAddress: '',
     contactNumber: '',
     countryOfResidence: '',
-    privacyConsent: false,
+    privacyConsent: true,
   });
 
   // State for submission status and messages
@@ -231,6 +231,7 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
                   checked={formData.privacyConsent}
                   onChange={handleChange}
                   required
+                  checked
                 />
                 <label htmlFor="privacyConsent" className="leading-snug">
                   By checking this box, I confirm that I agree to Orthosquare M.D.C.
