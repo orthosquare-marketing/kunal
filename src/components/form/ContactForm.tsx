@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button'; // Assuming this Button component is correctly imported and typed if it's also TSX
 
 // Define an interface for your form data
@@ -21,6 +22,7 @@ const ContactForm: React.FC = () => {
     countryOfResidence: '',
     privacyConsent: true,
   });
+  const navigate = useNavigate();
 
   // State for submission status and messages
   const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -78,6 +80,11 @@ const ContactForm: React.FC = () => {
         countryOfResidence: '',
         privacyConsent: false,
       });
+
+      // Redirect to thank you page after a short delay
+      setTimeout(() => {
+        navigate('/thank-you');
+      }, 1000);
 
     } catch (error: any) { // Type 'any' for general error catching, or more specific if known
       console.error('Error submitting form:', error);

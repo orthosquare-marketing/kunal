@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { X } from 'lucide-react';
 
@@ -18,6 +19,7 @@ interface ModalContactFormProps {
 }
 
 const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
   // State to hold form input values, explicitly typed
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
@@ -85,12 +87,13 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
         privacyConsent: false,
       });
 
-      // Close modal after 2 seconds on success
+      // Redirect to thank you page after a short delay
       setTimeout(() => {
         onClose();
         setSubmissionStatus('idle');
         setSubmissionMessage('');
-      }, 2000);
+        navigate('/thank-you');
+      }, 1000);
 
     } catch (error: any) { // Type 'any' for general error catching, or more specific if known
       console.error('Error submitting form:', error);
