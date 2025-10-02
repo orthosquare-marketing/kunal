@@ -120,11 +120,11 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
       <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Modal Header */}
         <div className="flex justify-between items-center p-6 border-b">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0578b1]">
+          <div className="text-left">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0578b1] text-left">
               Plan Your Visit with Dr. Shet Today
             </h2>
-            <p className="text-gray-700 text-sm md:text-base mt-2">
+            <p className="text-gray-700 text-sm md:text-base mt-2 text-left">
               Please fill out the form below to either{" "}
               <span
                 onClick={() => {

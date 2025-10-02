@@ -92,21 +92,7 @@ const Smile = () => {
                 />
               ))}
             </div>
-           <div className="w-full text-center mb-10">
-            {/* <Button
-              onClick={() => {
-                window.open('https://wa.me/919167195818', '_blank')
-              }}
-              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
-              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-              Request Virtual Consultation at ₹500
-              </span>
-              <img
-                className="w-[20px] h-[20px] ml-2"
-                alt="Frame"
-                src="/math.png"
-              />
-            </Button> */}
+           <div className="w-full  mb-10">
             <ModalButton  
               buttonText="Request Virtual Consultation at ₹500"
               className="w-full h-12 mt-8 lg:mt-[100px]"
@@ -141,24 +127,10 @@ const Smile = () => {
                 ))}
               </div>
 
-           <div className="w-full text-center mb-10">
-            {/* <Button
-              onClick={() => {
-                window.open('https://wa.me/919167195818', '_blank')
-              }}
-              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
-              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-              Request Virtual Consultation at ₹500
-              </span>
-              <img
-                className="w-[20px] h-[20px] ml-2"
-                alt="Frame"
-                src="/math.png"
-              />
-            </Button> */}
+           <div className="w-full  mb-10">
             <ModalButton  
               buttonText="Request Virtual Consultation at ₹500"
-              className="w-full h-12 mt-8 lg:mt-[100px]"
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200"
             />
           </div>
             </div>
@@ -168,7 +140,7 @@ const Smile = () => {
         {/* Right-side Image (only for desktop) */}
         <div 
         
-        className="absolute right-0 top-0 h-full w-1/2 z-10 hidden lg:block">
+        className="absolute right-0 top-0 h-full w-1/2 z-3 hidden lg:block">
           <img
             src="/smileTransformationSection.png"
             alt="Smile Transformation"
