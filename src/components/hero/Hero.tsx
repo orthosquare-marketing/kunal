@@ -20,7 +20,7 @@ const Hero = () => {
               to 400+ Dentists
             </div>
             <ModalButton  
-              buttonText="Quick Dental Consult at ₹500"
+              buttonText="Quick Dental Consult at NO COST"
               className="w-full h-12 mt-8 lg:mt-[100px]"
             />
           </div>

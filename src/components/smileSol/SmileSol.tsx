@@ -45,7 +45,7 @@ const SmileSol: React.FC = () => {
                         {transformations.map((item, index) => (
                             <div
                                 key={index}
-                                className="w-full max-w-[250px] aspect-square bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-4 mx-auto"
+                                className="w-full max-w-[250px] aspect-square bg-white rounded-lg shadow-lg overflow-hidden flex flex-col items-center p-4 mx-auto transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer"
                                 onClick={() => {
                                     window.open('https://wa.me/919167195818', '_blank')
                                   }}
@@ -63,23 +63,9 @@ const SmileSol: React.FC = () => {
                     </div>
 
                 </div>
-                {/* CTA Button */}
-                {/* <Button
-                    onClick={() => {
-                        window.open('https://wa.me/919167195818', '_blank')
-                    }}
-                    className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 py mx-auto hover:bg-[#046a9d] transition duration-200">
-                    <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-                        Quick Connect via Video Call only at ₹500
-                    </span>
-                    <img
-                        className="w-[20px] h-[20px] ml-2"
-                        alt="Frame"
-                        src="/math.png"
-                    />
-                </Button> */}
+               
                 <ModalButton  
-              buttonText="Quick Connect via Video Call only at ₹500"
+              buttonText="Quick Connect via Free Video Call"
               className=" mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 py mx-auto hover:bg-[#046a9d] transition duration-200"
             />
             </div>

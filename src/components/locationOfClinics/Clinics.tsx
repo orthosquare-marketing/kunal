@@ -1,6 +1,7 @@
 
 // import { Button } from '../ui/button';
 import ModalButton from "../../components/ui/modal-button";
+import { useState } from "react";
 
 const Clinics = () => {
 
@@ -25,7 +26,28 @@ const Clinics = () => {
 
     {/* TEXT + VIDEO: Show second on mobile, first on desktop */}
     <div className="order-2 lg:order-1 flex flex-col gap-6">
-      <p className="text-lg leading-relaxed">
+      {/* Responsive Read More/Less for mobile */}
+      {(() => {
+        const fullText = `With over 117 state-of-the-art dental clinics across India, our network ensures seamless, modern, and personalized care for implants, aligners, cosmetic makeovers, and full smile rehabilitations. From vibrant cities like Mumbai, Pune, Bangalore, and Delhi to rapidly growing destinations in Ahmedabad, Hyderabad, Kochi, and beyond, high-quality dental care is never far away. For international patients, we offer a complete care experience, including premium treatments, transparent procedures, and dedicated travel support, ensuring a smooth journey from treatment planning to post-care.`;
+        const shortText = `With over 117 state-of-the-art dental clinics across India, our network ensures seamless, modern, and personalized care for implants, aligners, cosmetic makeovers, and full smile rehabilitations. From vibrant cities like Mumbai, Pune, Bangalore, and Delhi to rapidly growing destinations...`;
+        const [expanded, setExpanded] = useState(false);
+        return (
+          <div className="block md:hidden">
+            <p className="text-lg leading-relaxed">
+              {expanded ? fullText : shortText}
+              <button
+                className="ml-2 text-[#0578b1] underline font-medium focus:outline-none"
+                onClick={() => setExpanded(e => !e)}
+                type="button"
+              >
+                {expanded ? "Read Less" : "Read More"}
+              </button>
+            </p>
+          </div>
+        );
+      })()}
+      {/* Always show full text on desktop */}
+      <p className="text-lg leading-relaxed hidden md:block">
         With over 117 state-of-the-art dental clinics across India, our network ensures seamless, modern, and personalized care for implants, aligners, cosmetic makeovers, and full smile rehabilitations. From vibrant cities like Mumbai, Pune, Bangalore, and Delhi to rapidly growing destinations in Ahmedabad, Hyderabad, Kochi, and beyond, high-quality dental care is never far away. For international patients, we offer a complete care experience, including premium treatments, transparent procedures, and dedicated travel support, ensuring a smooth journey from treatment planning to post-care.
       </p>
 
@@ -44,22 +66,8 @@ const Clinics = () => {
   </div>
 </div>
 
-        {/* <Button
-              onClick={() => {
-                window.open('https://wa.me/919167195818', '_blank')
-              }}
-              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200">
-              <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[20px] tracking-[-0.5px] leading-normal text-center p-3">
-              Expert Video Consultation with Dr. Shet at ₹500
-              </span>
-              <img
-                className="w-[20px] h-[20px] ml-2"
-                alt="Frame"
-                src="/math.png"
-              />
-            </Button> */}
             <ModalButton  
-              buttonText="Expert Video Consultation with Dr. Shet at ₹500"
+              buttonText="Expert Free Video Consultation with Dr. Shet "
               className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200"
             />
       </section>

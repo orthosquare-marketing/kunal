@@ -108,7 +108,7 @@ const ContactForm: React.FC = () => {
             }}
             className="underline text-[#0578b1]"
           >
-            schedule a video consultation
+            schedule a free video consultation
           </a>{" "}
           with Dr. Shet or begin planning your dental trip to India. You can
           choose the clinic location that suits you best
@@ -224,24 +224,24 @@ const ContactForm: React.FC = () => {
             </p>
           )}
 
-          <div className="w-full text-center mb-10">
-          <Button
-            type="submit"
-            className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-3 px-6 py-4 mx-auto hover:bg-[#046a9d] transition duration-200 min-w-fit"
-            disabled={submissionStatus === "submitting"}
-          >
-            <span className="font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[18px] tracking-[-0.5px] leading-normal">
-              {submissionStatus === "submitting"
-                ? "Submitting..."
-                : "Get Instant Consultation at ₹500"}
-            </span>
-            <img
-              className="w-[20px] h-[20px] flex-shrink-0"
-              alt="Frame"
-              src="/math.png"
-            />
-          </Button>
-        </div>
+          <div className="md:col-span-2 flex justify-center mb-10">
+            <Button
+              type="submit"
+              className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-center gap-3 px-6 py-4 mx-auto hover:bg-[#046a9d] transition duration-200 min-w-fit"
+              disabled={submissionStatus === "submitting"}
+            >
+              <span className="font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[18px] tracking-[-0.5px] leading-normal">
+                {submissionStatus === "submitting"
+                  ? "Submitting..."
+                  : "Get Instant Consultation worth ₹1500 for FREE"}
+              </span>
+              <img
+                className="w-[20px] h-[20px] flex-shrink-0"
+                alt="Frame"
+                src="/math.png"
+              />
+            </Button>
+          </div>
         </div>
 
         

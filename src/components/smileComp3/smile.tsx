@@ -94,7 +94,7 @@ const Smile = () => {
             </div>
            <div className="w-full  mb-10">
             <ModalButton  
-              buttonText="Request Virtual Consultation at ₹500"
+              buttonText="Request Free Virtual Consultation"
               className="w-full h-12 mt-8 lg:mt-[100px]"
             />
           </div>
@@ -129,7 +129,7 @@ const Smile = () => {
 
            <div className="w-full  mb-10">
             <ModalButton  
-              buttonText="Request Virtual Consultation at ₹500"
+              buttonText="Request Free Virtual Consultation"
               className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 mx-auto hover:bg-[#046a9d] transition duration-200"
             />
           </div>

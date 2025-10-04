@@ -61,7 +61,7 @@ const About = () => {
            
 
             <ModalButton  
-              buttonText="Consult with Dr. Shet via Video Call at ₹500"
+              buttonText="Consult with Dr. Shet via Free Video Call"
               className="mt-8 bg-[#ff7f50] rounded-[5px] flex items-center justify-start px-5 mx-auto hover:bg-[#046a9d] transition duration-200 text-left"
             />
           </div>
