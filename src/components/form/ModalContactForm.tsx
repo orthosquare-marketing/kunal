@@ -50,6 +50,7 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
   // Handler for form submission, with explicit event type
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission behavior (page reload)
+    if (e.stopPropagation) e.stopPropagation();
 
     setSubmissionStatus('submitting');
     setSubmissionMessage('Sending your inquiry...');
