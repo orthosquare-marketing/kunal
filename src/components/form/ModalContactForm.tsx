@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, useRef, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { X } from 'lucide-react';
@@ -20,6 +20,10 @@ interface ModalContactFormProps {
 
 const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
+
+  // hard guard to prevent double submission / double GTM event
+  const submitLocked = useRef(false);
+
   // State to hold form input values, explicitly typed
   const [formData, setFormData] = useState<FormData>({
     firstName: '',
@@ -35,14 +39,14 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
   const [submissionMessage, setSubmissionMessage] = useState<string>('');
 
   // Google Apps Script Web App URL - REPLACE THIS WITH YOUR ACTUAL URL
-  const GOOGLE_APPS_SCRIPT_URL: string = 'https://script.google.com/macros/s/AKfycbzvTiR1KKnsrD_S7ooYzqbMu8xB8MOih9HYWexkIA5wYdWIAVe6UxdCrfh3FPpUgosA/exec';
+  const GOOGLE_APPS_SCRIPT_URL: string =
+    'https://script.google.com/macros/s/AKfycbzvTiR1KKnsrD_S7ooYzqbMu8xB8MOih9HYWexkIA5wYdWIAVe6UxdCrfh3FPpUgosA/exec';
 
   // Handler for input changes, with explicit event type
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value, type, checked } = e.target;
     setFormData(prevData => ({
       ...prevData,
-      // TypeScript is smart enough to infer the type here, but explicit casting can be done if needed
       [id]: type === 'checkbox' ? checked : value,
     }));
   };
@@ -50,7 +54,18 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
   // Handler for form submission, with explicit event type
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission behavior (page reload)
-    if (e.stopPropagation) e.stopPropagation();
+
+    // avoid double-firing on rapid clicks / re-renders
+    if (submitLocked.current) return;
+    submitLocked.current = true;
+
+    // push exactly ONE GTM custom event
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({
+      event: 'lead_form_submit',
+      formId: 'contactForm',
+      formName: 'ModalContactForm',
+    });
 
     setSubmissionStatus('submitting');
     setSubmissionMessage('Sending your inquiry...');
@@ -62,20 +77,19 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
       emailAddress: formData.emailAddress,
       contactNumber: formData.contactNumber,
       countryOfResidence: formData.countryOfResidence,
-      privacyConsent: formData.privacyConsent.toString(), // Convert boolean to string "true" or "false"
+      privacyConsent: formData.privacyConsent.toString(),
     }).toString();
 
     try {
-      const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+      await fetch(GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // Essential for direct client-side POST to Apps Script
+        mode: 'no-cors', // direct client-side POST to Apps Script
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: dataToSend,
       });
 
-      // As explained before, due to 'no-cors' mode, we assume success if no fetch error.
       setSubmissionStatus('success');
       setSubmissionMessage('Thank you! Your inquiry has been sent.');
       // Clear the form after successful submission
@@ -88,19 +102,21 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
         privacyConsent: false,
       });
 
-      // Redirect to thank you page after a short delay
+      // small delay so GTM tags on lead_form_submit can fire before navigation
       setTimeout(() => {
         onClose();
         setSubmissionStatus('idle');
         setSubmissionMessage('');
         navigate('/thank-you');
       }, 1000);
-
-    } catch (error: any) { // Type 'any' for general error catching, or more specific if known
+    } catch (error: any) {
       console.error('Error submitting form:', error);
       setSubmissionStatus('error');
-      // Optionally, you can try to get a more specific error message
-      setSubmissionMessage(`There was an error sending your inquiry. Please try again later. Error: ${error.message || 'Unknown error'}`);
+      setSubmissionMessage(
+        `There was an error sending your inquiry. Please try again later. Error: ${error?.message || 'Unknown error'}`
+      );
+      // allow retry on error
+      submitLocked.current = false;
     }
   };
 
@@ -114,7 +130,7 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
   if (!isOpen) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
       onClick={handleBackdropClick}
     >
@@ -126,15 +142,15 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
               Plan Your Visit with Dr. Shet Today
             </h2>
             <p className="text-gray-700 text-sm md:text-base mt-2 text-left">
-              Please fill out the form below to either{" "}
+              Please fill out the form below to either{' '}
               <span
                 onClick={() => {
-                  window.open("https://wa.me/919167195818", "_blank");
+                  window.open('https://wa.me/919167195818', '_blank');
                 }}
                 className="underline text-[#0578b1] cursor-pointer"
               >
                 schedule a video consultation
-              </span>{" "}
+              </span>{' '}
               with Dr. Shet or begin planning your dental trip to India.
             </p>
           </div>
@@ -149,7 +165,8 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
 
         {/* Modal Body */}
         <div className="p-6">
-          <form onSubmit={handleSubmit}>
+          {/* NOTE: give the form a stable id for GTM filtering */}
+          <form id="contactForm" onSubmit={handleSubmit}>
             <div className="border-2 border-[#0578b1] rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-[#0578b1] font-medium">
               <div className="flex flex-col">
                 <label htmlFor="firstName" className="mb-1">
@@ -244,14 +261,14 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
               </div>
 
               {/* Submission status message */}
-              {submissionStatus !== "idle" && (
+              {submissionStatus !== 'idle' && (
                 <p
                   className={`md:col-span-2 text-center mt-4 ${
-                    submissionStatus === "success"
-                      ? "text-green-600"
-                      : submissionStatus === "error"
-                      ? "text-red-600"
-                      : "text-gray-600"
+                    submissionStatus === 'success'
+                      ? 'text-green-600'
+                      : submissionStatus === 'error'
+                      ? 'text-red-600'
+                      : 'text-gray-600'
                   }`}
                 >
                   {submissionMessage}
@@ -262,18 +279,14 @@ const ModalContactForm: React.FC<ModalContactFormProps> = ({ isOpen, onClose }) 
                 <Button
                   type="submit"
                   className="bg-[#ff7f50] rounded-[5px] flex items-center justify-between px-5 hover:bg-[#046a9d] transition duration-200"
-                  disabled={submissionStatus === "submitting"}
+                  disabled={submissionStatus === 'submitting'}
                 >
                   <span className="whitespace-nowrap overflow-hidden text-ellipsis font-['Poppins'] font-medium text-white text-sm sm:text-base lg:text-[18px] tracking-[-0.5px] leading-normal text-center p-3">
-                    {submissionStatus === "submitting"
-                      ? "Submitting..."
-                      : "Get Instant Consultation at ₹500"}
+                    {submissionStatus === 'submitting'
+                      ? 'Submitting...'
+                      : 'Get Instant Consultation at ₹500'}
                   </span>
-                  <img
-                    className="w-[20px] h-[20px] ml-2"
-                    alt="Frame"
-                    src="/math.png"
-                  />
+                  <img className="w-[20px] h-[20px] ml-2" alt="Frame" src="/math.png" />
                 </Button>
               </div>
             </div>
